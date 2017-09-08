@@ -16,10 +16,16 @@ ActiveRecord::Schema.define(version: 20170908202826) do
   enable_extension "plpgsql"
 
   create_table "segments", force: :cascade do |t|
+    t.integer "strava_id"
     t.string "name"
-    t.string "city"
-    t.string "elevation_high"
-    t.string "elevation_low"
+    t.string "distance"
+    t.string "average_grade"
+    t.string "maximum_grade"
+    t.decimal "start_lat"
+    t.decimal "start_long"
+    t.decimal "end_lat"
+    t.decimal "end_long"
+    t.decimal "avg_grade"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
