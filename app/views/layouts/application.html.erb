@@ -4,12 +4,37 @@
     <title>Traylfynderz</title>
     <%= csrf_meta_tags %>
 
+    <!-- Compiled and minified CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/css/materialize.min.css">
+
+    <!-- Compiled and minified JavaScript -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js"></script>
+
+
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
   </head>
 
   <body>
+          <h3>My Google Maps Demo</h3>
+          <div id="map"></div>
+          <script>
+      function initMap() {
+        var argonneArea = {lat: 41.7124, lng: -87.9031};
+        var map = new google.maps.Map(document.getElementById('map'), {
+          zoom: 13,
+          center: argonneArea
+        });
+        var marker = new google.maps.Marker({
+          position: argonneArea,
+          map: map
+        });
+      }
+    </script>
+    <script async defer
+    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDuhsT5Ue9fT3YVqXO-LWyZPFsBg6QCdX8&callback=initMap">
+    </script>
     <%= yield %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
   </body>
