@@ -7,6 +7,7 @@ class StravaAdapter
     @client = Strava::Api::V3::Client.new(:access_token => ENV["ACCESS_TOKEN"])
   end
 
+  # use the location api call to convert address into lat and longitude
   # activity_type:	string optional
   # ‘running’ or ‘riding’, default is riding
   # bounds must be ‘sw.lat,sw.lng,ne.lat,ne.lng’

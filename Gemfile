@@ -32,6 +32,10 @@ gem 'jbuilder', '~> 2.5'
 # gem 'bcrypt', '~> 3.1.7'
 gem 'webpacker'
 
+# for address to coordinates integration
+gem 'geocoder'
+
+# strava for segments integration
 gem 'strava-api-v3'
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
