@@ -2,6 +2,6 @@ Rails.application.routes.draw do
 
   resources :segments
 
-  root 'pages#index'
+  root to: 'pages#index'
 
 end

@@ -29,6 +29,8 @@ class StravaAdapter
         climb_category: seg["climb_category"]
         )
     end
+    p segment_data
+    p segments
     return segments
   end
 
@@ -47,6 +49,7 @@ class StravaAdapter
             climb_category_desc: seg["climb_category_desc"],
             climb_category: seg["climb_category"])
     return seg
+  end
 end
 
   # @client.retrieve_segment_streams(:segment_id)
