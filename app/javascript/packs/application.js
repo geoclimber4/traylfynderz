@@ -11,7 +11,7 @@ import React from 'react';
 import ReactDom from 'react-dom';
 // import '../components'
 import SampleComponent from '../components/SampleComponent';
-import Segments from '../components/Segments'
+import Segments from '../components/Segments.js.jsx'
 
 
 

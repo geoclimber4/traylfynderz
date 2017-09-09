@@ -34,6 +34,8 @@ gem 'webpacker'
 gem 'webpacker-react'
 gem 'responders'
 
+gem 'jquery-rails'
+
 # for address to coordinates integration
 gem 'geocoder'
 
