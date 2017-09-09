@@ -8,7 +8,8 @@
 // layout file, like app/views/layouts/application.html.erb
 
 import React from 'react';
-import { render } from 'react-dom'
+import { render } from 'react-dom';
+// import '../components'
 import SampleComponent from '../components/SampleComponent';
 
 document.addEventListener('DOMContentLoaded', () => {
