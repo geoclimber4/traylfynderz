@@ -16,7 +16,10 @@ export default class Segments extends React.Component {
     var segments= this.state.segments.map((segment) => {
       console.log(segments)
       return (
-        <h1>{segment.name} - {segment.distance}</h1>
+        <div key={segment.id}>
+          <h2>-{segment.name}-</h2>
+          <p>{segment.distance} longboys</p>
+        </div>
         // React.createElement('h1', null, '${segment.name} - {segment.distance}')
       )
     })
