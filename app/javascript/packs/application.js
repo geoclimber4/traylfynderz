@@ -8,11 +8,18 @@
 // layout file, like app/views/layouts/application.html.erb
 
 import React from 'react';
-import { render } from 'react-dom';
+import ReactDom from 'react-dom';
 // import '../components'
 import SampleComponent from '../components/SampleComponent';
+import Segments from '../components/Segments'
+
+
 
 document.addEventListener('DOMContentLoaded', () => {
-  const container = document.body.appendChild(document.createElement('div'));
-  render(<SampleComponent/>, container);
+  // const container = document.body.appendChild(document.createElement('div'));
+  // render(<SampleComponent/>, container);
+  const container = document.getElementById('app');
+  ReactDom.render(<Segments />, container);
 });
+
+
