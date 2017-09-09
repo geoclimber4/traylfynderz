@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
 
-  resources :segments, only: [:index]
+  resources :segments
 
   root to: 'pages#index'
 
