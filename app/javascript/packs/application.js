@@ -6,12 +6,5 @@
 //
 // To reference this file, add <%= javascript_pack_tag 'application' %> to the appropriate
 // layout file, like app/views/layouts/application.html.erb
-import React from 'react'
-import ReactDom from 'react-dom'
 
-import Example from './example'
-
-let container = document.getElementById('app')
-
-
-ReactDom.render(<Example />, container)
+console.log('Hello World from Webpacker')

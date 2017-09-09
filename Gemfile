@@ -30,6 +30,7 @@ gem 'jbuilder', '~> 2.5'
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 gem 'webpacker'
+gem 'responders'
 
 gem 'strava-api-v3'
 # Use Capistrano for deployment
