@@ -1,9 +1,9 @@
 class SegmentsController < ApplicationController
 
   def index
-    @segments = Segment.all
+    segments = Segment.all
     respond_to do |f|
-      f.json { render :json => @segments }
+      f.json { render :json => segments }
     end
   end
 

@@ -1,6 +1,6 @@
 import React, {Component} from 'react'
 
-class Example extends Component {
+class Segment extends React.Component {
 
   render() {
     console.log("Love them pack files")
@@ -13,4 +13,4 @@ class Example extends Component {
 
 }
 
-export default Example
+export default Segment

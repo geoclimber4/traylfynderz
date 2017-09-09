@@ -10,8 +10,9 @@ import React from 'react'
 import ReactDom from 'react-dom'
 
 import Example from './example'
+import Segment from './segment'
 
 let container = document.getElementById('app')
 
 
-ReactDom.render(<Example />, container)
+ReactDom.render(<Segment />, container)
