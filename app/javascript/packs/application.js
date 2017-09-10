@@ -12,6 +12,7 @@ import ReactDom from 'react-dom';
 // import '../components'
 import SampleComponent from '../components/SampleComponent';
 import Segments from '../components/Segments.js.jsx'
+import Form from '../components/Form.js.jsx'
 
 
 
@@ -20,6 +21,7 @@ document.addEventListener('DOMContentLoaded', () => {
   // render(<SampleComponent/>, container);
   const container = document.getElementById('app');
   ReactDom.render(<Segments />, container);
+  ReactDom.render(<Form />, document.getElementById('form'));
 });
 
 
