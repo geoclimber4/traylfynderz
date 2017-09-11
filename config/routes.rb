@@ -1,10 +1,8 @@
 Rails.application.routes.draw do
 
-  # resources :segments
+  resources :segments
 
-  resources :locations do
-    resources :segments
-  end
+  resources :locations
 
   # resources :form
 
