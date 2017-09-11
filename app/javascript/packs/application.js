@@ -20,7 +20,7 @@ document.addEventListener('DOMContentLoaded', () => {
   // const container = document.body.appendChild(document.createElement('div'));
   // render(<SampleComponent/>, container);
   const container = document.getElementById('app');
-  ReactDom.render(<Segments />, container);
+  // ReactDom.render(<Segments />, container);
   ReactDom.render(<Form />, document.getElementById('form'));
 });
 

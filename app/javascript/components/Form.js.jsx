@@ -21,7 +21,7 @@ export default class Form extends React.Component {
   render() {
     return (
       <div>
-        <form action="/segments" method="POST">
+        <form action="/locations" method="POST">
           <label>
             Location:
             <input type="text" name="address" />
