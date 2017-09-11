@@ -1,7 +1,9 @@
 Rails.application.routes.draw do
+# lock down extra routes !!!!!
 
-  resources :segments
-
+  resources :locations do
+    resources :segments
+  end
 
 
   # resources :form
