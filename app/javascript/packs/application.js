@@ -21,7 +21,7 @@ document.addEventListener('DOMContentLoaded', () => {
   // render(<SampleComponent/>, container);
   ReactDom.render(<Form />, document.getElementById('form'));
   const container = document.getElementById('app');
-  ReactDom.render(<Location />, container);
+  // ReactDom.render(<Location />, container);
 });
 
 
