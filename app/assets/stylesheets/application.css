@@ -24,3 +24,7 @@ body {
   background-color: grey;
 }
 
+#mapid {
+  height: 400px;
+}
+
