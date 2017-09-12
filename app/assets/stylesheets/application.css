@@ -18,9 +18,9 @@ body {
   margin: 2%;
 }
 
- #map {
-  width: 100%;
+#mapid {
+
   height: 400px;
-  background-color: grey;
+  z-index: -1;
 }
 

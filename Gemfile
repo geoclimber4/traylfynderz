@@ -39,6 +39,8 @@ gem 'jquery-rails'
 # for address to coordinates integration
 gem 'geocoder'
 
+gem 'overpass-api-ruby'
+
 # strava for segments integration
 gem 'strava-api-v3'
 # Use Capistrano for deployment
