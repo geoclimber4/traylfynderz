@@ -23,7 +23,7 @@ export default class Form extends React.Component {
   render() {
     return (
       <div>
-        <form action="/locations" method="POST" onSubmit={this.props.handleSubmit} >
+        <form className="address_form" action="/locations" method="POST" onSubmit={this.props.handleSubmit} >
           <label>
             Location:
             <input type="text" name="address" onChange={this.props.handleChange} />
