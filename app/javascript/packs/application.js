@@ -13,6 +13,10 @@ import ReactDom from 'react-dom';
 import SampleComponent from '../components/SampleComponent';
 import App from '../components/App.jsx';
 
+var coord = [51.505, -0.09]
+
+var mymap = L.map('mapid').setView(coord, 13);
+
 
 document.addEventListener('DOMContentLoaded', () => {
   // const container = document.body.appendChild(document.createElement('div'));
