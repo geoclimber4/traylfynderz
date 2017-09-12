@@ -40,9 +40,4 @@ ActiveRecord::Schema.define(version: 20170911154128) do
     t.integer "location_id"
   end
 
-  create_table "trails", force: :cascade do |t|
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
 end
