@@ -18,8 +18,9 @@ body {
   margin: 2%;
 }
 
- #mapid {
-  width: 100%;
+#mapid {
+
   height: 400px;
+  z-index: -1;
 }
 
