@@ -3,7 +3,7 @@ class TrailsController < ApplicationController
   def new
     p "trails new"
     @adapter = OverpassAdapter.new
-    @location = Location.create(address: "Moab, UT")
+    @location = Location.create(address: "Flagstaff, AZ")
     p @location
     geojson = @adapter.run_query(
           swlat: (@location.latitude - 0.1),

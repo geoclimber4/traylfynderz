@@ -23,12 +23,16 @@ class OverpassAdapter
 
 
 
-  def run_query(args )
+  def run_query(args)
       south = args[:swlat] || 41.6959
       north = args[:nelat] || 41.70511
-      east = args[:swlong] || -87.8828
-      west = args[:nelong] || -87.8937
-
+      east = args[:swlng] || -87.8828
+      west = args[:nelng] || -87.8937
+      p south
+      p north
+      p east
+      p west
+      p args
     options={:bbox => {:s => south,
                        :n =>  north,
                        :w => west,
@@ -42,7 +46,19 @@ class OverpassAdapter
                  "</union><union><item/><recurse type='down'/></union>"
 
         response = overpass.query(query)
-
+        p response
     return response
   end
 end
+
+# <osm-script output="json" output-config="" timeout="25">
+#   <union into="_">
+#     <query into="_" type="way">
+#       <has-kv k="highway" modv="" v="path"/>
+#       <bbox-query e="-111.6243553161621" into="_" n="35.22974663750046" s="35.210520085118254" w="-111.65152072906494"/>
+#     </query>
+#   </union>
+#   <print e="" from="_" geometry="skeleton" limit="" mode="body" n="" order="id" s="" w=""/>
+#   <recurse from="_" into="_" type="down"/>
+#   <print e="" from="_" geometry="skeleton" limit="" mode="skeleton" n="" order="quadtile" s="" w=""/>
+# </osm-script>
