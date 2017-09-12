@@ -3,7 +3,7 @@ import React from 'react';
 export default class Form extends React.Component {
   constructor(props) {
     super(props);
-    this.state = {value: ''};
+    this.state = {address: '', activity_type: ''};
 
     // this.handleChange = this.handleChange.bind(this);
     // this.handleSubmit = this.handleSubmit.bind(this);
