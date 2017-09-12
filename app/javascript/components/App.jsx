@@ -5,7 +5,10 @@ import Location from './Location.js.jsx';
 class App extends React.Component{
   constructor(props) {
     super(props)
-    this.state = { value: '', location: [] }
+    this.state = { address: '',
+                  activity_type: 'riding',
+                  trail_distance: '',
+                  location: [] }
     this.submitHandler = this.submitHandler.bind(this)
     this.handleChange = this.handleChange.bind(this);
   }
@@ -13,8 +16,14 @@ class App extends React.Component{
     console.log(event)
     event.preventDefault();
     console.log("submit!")
+    console.log(this)
+    console.log(this.state)
+
     // console.log(this.state.value)
-    var dataThing = {location: {address: this.state.value}}
+    var dataThing = {location: {address: this.state.address,
+                                activity_type: this.state.activity_type,
+                                trail_distance: this.state.trail_distance
+                              }}
     // console.log(dataThing)
     // $.getJSON('location.json', (response) => { this.setState({
     //   location: response })
@@ -27,6 +36,7 @@ class App extends React.Component{
       method: 'POST',
       data: dataThing
     }).done(function(response){
+      console.log("This is the verything's okay alarm")
       console.log(response)
       console.log(response.latitude);
       console.log(response.longitude);
@@ -51,7 +61,19 @@ class App extends React.Component{
   }
 
   handleChange(event) {
-    this.setState({value: event.target.value});
+    console.log("handleChange is below")
+    console.log(event.target)
+    console.log(event.target.address)
+    if(event.target.name == 'address'){
+      this.setState({address: event.target.value});
+    }
+    if(event.target.name == 'activity_type'){
+      this.setState({activity_type: event.target.value});
+    }
+    if(event.target.name == 'trail_distance'){
+      this.setState({trail_distance: event.target.value});
+    }
+
   }
 
   render() {
