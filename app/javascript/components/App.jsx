@@ -13,9 +13,9 @@ class App extends React.Component{
     console.log(event)
     event.preventDefault();
     console.log("submit!")
-    console.log(this.state.value)
+    // console.log(this.state.value)
     var dataThing = {location: {address: this.state.value}}
-    console.log(dataThing)
+    // console.log(dataThing)
     // $.getJSON('location.json', (response) => { this.setState({
     //   location: response })
     //   console.log(response)
@@ -27,8 +27,11 @@ class App extends React.Component{
       method: 'POST',
       data: dataThing
     }).done(function(response){
-
-      console.log(response.address);
+      console.log(response)
+      console.log(response.latitude);
+      console.log(response.longitude);
+      const loc = [response.latitude, response.longitude]
+      mymap.setView(loc, 14);
       // $("#app").append(response.segments[0].name);
       $("#segments_container").empty();
       $("#segments_container").append("<h3 class='address'></h3>")
