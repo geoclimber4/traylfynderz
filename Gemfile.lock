@@ -242,6 +242,7 @@ DEPENDENCIES
   overpass-api-ruby
   pg (~> 0.18)
   puma (~> 3.7)
+  rack-test
   rails (~> 5.1.4)
   responders
   rspec-rails
