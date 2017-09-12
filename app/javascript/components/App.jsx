@@ -42,6 +42,7 @@ class App extends React.Component{
       console.log(response.longitude);
       const loc = [response.latitude, response.longitude]
       mymap.setView(loc, 14);
+      L.marker(loc).addTo(mymap);
       // $("#app").append(response.segments[0].name);
       $("#segments_container").empty();
       $("#segments_container").append("<h3 class='address'></h3>")
