@@ -13,11 +13,11 @@ class App extends React.Component{
     this.handleChange = this.handleChange.bind(this);
   }
   submitHandler(event) {
-    console.log(event)
+    // console.log(event)
     event.preventDefault();
     console.log("submit!")
-    console.log(this)
-    console.log(this.state)
+    // console.log(this)
+    // console.log(this.state)
 
     // console.log(this.state.value)
     var dataThing = {location: {address: this.state.address,
@@ -36,10 +36,10 @@ class App extends React.Component{
       method: 'POST',
       data: dataThing
     }).done(function(response){
-      console.log("This is the verything's okay alarm")
-      console.log(response)
-      console.log(response.latitude);
-      console.log(response.longitude);
+      // console.log("This is the verything's okay alarm")
+      // console.log(response)
+      // console.log(response.latitude);
+      // console.log(response.longitude);
       const loc = [response.latitude, response.longitude]
       mymap.setView(loc, 14);
       L.marker(loc).addTo(mymap);
@@ -53,6 +53,9 @@ class App extends React.Component{
         // $(".segment_list").append("<li></li>")
         var name = segment.name
         var distance = segment.distance
+        var segCoord = [segment.start_lat, segment.start_long]
+        console.log(segCoord)
+        L.marker(segCoord).addTo(mymap);
         $(".segment_list").append("<li>" + name + "</br>Distance:  " + distance + " meters</li>");
       });
       $(".address_form input[type=text]").val("");
