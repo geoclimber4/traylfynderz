@@ -3,7 +3,10 @@ import React from 'react';
 export default class Form extends React.Component {
   constructor(props) {
     super(props);
-    this.state = {address: '', activity_type: ''};
+    // this.state = {address: '',
+    //               activity_type: ''
+    //               // trail_distance: ''
+    //             };
 
     // this.handleChange = this.handleChange.bind(this);
     // this.handleSubmit = this.handleSubmit.bind(this);
@@ -28,6 +31,7 @@ export default class Form extends React.Component {
             Location:
             <input type="text" name="address" onChange={this.props.handleChange} />
           </label>
+
           <label>
             Choose type of activity:
             <select name="activity_type" onChange={this.props.handleChange}>
@@ -35,6 +39,12 @@ export default class Form extends React.Component {
               <option value="running">Running</option>
             </select>
           </label>
+
+          <label>
+            Choose distance of trail:
+            <input type="number" name="trail_distance" onChange={this.props.handleChange} />
+          </label>
+
           <input type="submit" value="Submit" />
         </form>
       </div>
