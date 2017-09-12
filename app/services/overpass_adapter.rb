@@ -26,8 +26,8 @@ class OverpassAdapter
   def run_query(args)
       south = args[:swlat] || 41.6959
       north = args[:nelat] || 41.70511
-      east = args[:swlng] || -87.8828
-      west = args[:nelng] || -87.8937
+      west = args[:swlng] || -87.8937
+      east = args[:nelng] || -87.8828
       p south
       p north
       p east
