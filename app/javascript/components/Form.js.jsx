@@ -3,7 +3,7 @@ import React from 'react';
 export default class Form extends React.Component {
   constructor(props) {
     super(props);
-    this.state = {value: ''};
+    this.state = {address: '', activity_type: ''};
 
     // this.handleChange = this.handleChange.bind(this);
     // this.handleSubmit = this.handleSubmit.bind(this);
@@ -27,6 +27,13 @@ export default class Form extends React.Component {
           <label>
             Location:
             <input type="text" name="address" onChange={this.props.handleChange} />
+          </label>
+          <label>
+            Choose type of activity:
+            <select name="activity_type" onChange={this.props.handleChange}>
+              <option value="riding">Riding</option>
+              <option value="running">Running</option>
+            </select>
           </label>
           <input type="submit" value="Submit" />
         </form>
