@@ -28,7 +28,19 @@ class App extends React.Component{
       data: dataThing
     }).done(function(response){
 
-      console.log(response);
+      console.log(response.address);
+      // $("#app").append(response.segments[0].name);
+      $("#segments_container").empty();
+      $("#segments_container").append("<h3 class='address'></h3>")
+      $(".address").append(response.address);
+      $(".address").after("<ul class='segment_list'></ul>");
+      response.segments.forEach(function(segment){
+        console.log(segment.name);
+        // $(".segment_list").append("<li></li>")
+        var name = segment.name
+        $(".segment_list").append("<li>" + name + "</li>");
+      });
+      $(".address_form input[type=text]").val("");
     }).fail(function(response){
       console.log("no funsies")
       console.log(response)
