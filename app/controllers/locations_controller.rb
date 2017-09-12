@@ -1,10 +1,11 @@
 class LocationsController < ApplicationController
   def create
     p "Hit locations controller"
-    p params
-    @location = Location.new(address: params[:address])
+    p params[:location]
+
+    @location = Location.new(location_params)
     if @location.save
-      redirect_to "/locations/#{@location.id}"
+      render json: @location.to_json( :include => [:segments])
     else
       redirect_to root_path
     end

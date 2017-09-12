@@ -11,17 +11,14 @@ import React from 'react';
 import ReactDom from 'react-dom';
 // import '../components'
 import SampleComponent from '../components/SampleComponent';
-import Segments from '../components/Segments.js.jsx'
-import Form from '../components/Form.js.jsx'
-
+import App from '../components/App.jsx';
 
 
 document.addEventListener('DOMContentLoaded', () => {
   // const container = document.body.appendChild(document.createElement('div'));
   // render(<SampleComponent/>, container);
-  ReactDom.render(<Form />, document.getElementById('form'));
   const container = document.getElementById('app');
-  // ReactDom.render(<Location />, container);
+  ReactDom.render(<App />, container);
 });
 
 
