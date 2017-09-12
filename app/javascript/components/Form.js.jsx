@@ -28,6 +28,13 @@ export default class Form extends React.Component {
             Location:
             <input type="text" name="address" onChange={this.props.handleChange} />
           </label>
+          <label>
+            Choose type of activity:
+            <select name="activity_type" onChange={this.props.handleChange}>
+              <option value="riding">Riding</option>
+              <option value="running">Running</option>
+            </select>
+          </label>
           <input type="submit" value="Submit" />
         </form>
       </div>
