@@ -4,8 +4,9 @@ class LocationsController < ApplicationController
     p params[:location]
 
     @location = Location.new(location_params)
-    p location_params
-    p @location.activity_type
+    # p location_params
+    # p @location.activity_type
+    p @location.trail_distance
     if @location.save
     @swlat = @location.latitude - 0.1
     @swlng = @location.longitude - 0.1
@@ -37,7 +38,7 @@ class LocationsController < ApplicationController
   private
 
   def location_params
-    params.require(:location).permit(:address, :id, :activity_type)
+    params.require(:location).permit(:address, :id, :activity_type, :trail_distance)
   end
 
   def segment_params
