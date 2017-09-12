@@ -14,17 +14,19 @@ export default class Form extends React.Component {
   // }
 
   // handleSubmit(event) {
-  //   alert('A name was submitted: ' + this.state.value);
+  //   // alert('A name was submitted in form.js: ' + this.state.value);
   //   event.preventDefault();
+  //   console.log("submit from the form.js!")
+  //   this.props.handleSubmit
   // }
 
   render() {
     return (
       <div>
-        <form action="/locations" method="POST">
+        <form action="/locations" method="POST" onSubmit={this.props.handleSubmit} >
           <label>
             Location:
-            <input type="text" name="address" />
+            <input type="text" name="address" onChange={this.props.handleChange} />
           </label>
           <input type="submit" value="Submit" />
         </form>
