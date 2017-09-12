@@ -51,7 +51,8 @@ class App extends React.Component{
         console.log(segment.name);
         // $(".segment_list").append("<li></li>")
         var name = segment.name
-        $(".segment_list").append("<li>" + name + "</li>");
+        var distance = segment.distance
+        $(".segment_list").append("<li>" + name + "</br>Distance:  " + distance + " meters</li>");
       });
       $(".address_form input[type=text]").val("");
     }).fail(function(response){
