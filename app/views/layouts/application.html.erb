@@ -1,8 +1,10 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
   <head>
     <title>Traylfynderz</title>
     <%= csrf_meta_tags %>
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css" integrity="sha384-/Y6pD6FV/Vv2HJnA6t+vslU6fwYXjCFtcEpHbNJ0lyAFsXTsjBbfaDjzALeQsN6M" crossorigin="anonymous">
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 
@@ -20,22 +22,9 @@
   </head>
 
   <body>
-    <h2>Gettin' Gosh Darned Recreational Out Here</h2>
+    <h2>trayLfynderz</h2>
 
     <div id="container"></div>
-
-    <!-- <script>
-      const loc = [41.74086519999999, -87.86033429999999]
-      const mymap = L.map('mapid').setView(loc, 14);
-      var myLayer = L.geoJSON().addTo(mymap)
-
-      L.tileLayer('http://{s}.tiles.wmflabs.org/hikebike/{z}/{x}/{y}.png', {
-          attribution: 'Map data &copy; <a href="http://openstreetmap.org">OpenStreetMap</a> contributors, <a href="http://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, Imagery © <a href="http://mapbox.com">Mapbox</a>',
-          maxZoom: 18,
-          id: 'mapbox.run-bike-hike',
-          accessToken: 'your.mapbox.access.token'
-      }).addTo(mymap);
-    </script> -->
 
     <%= yield %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
