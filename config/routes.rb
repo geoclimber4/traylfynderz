@@ -4,6 +4,7 @@ Rails.application.routes.draw do
 
   resources :locations
 
+  resources :trails
   # resources :form
 
   root to: 'pages#index'

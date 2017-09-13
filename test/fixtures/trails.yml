@@ -1,0 +1,19 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  name: MyString
+  feature_id: 1
+  bicycle: MyString
+  foot: MyString
+  owner: MyString
+  surface: MyString
+  geo: MyString
+
+two:
+  name: MyString
+  feature_id: 1
+  bicycle: MyString
+  foot: MyString
+  owner: MyString
+  surface: MyString
+  geo: MyString
