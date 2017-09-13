@@ -19,8 +19,9 @@ body {
 }
 
 #mapid {
-
   height: 400px;
-  z-index: -1;
 }
 
+.leaflet-container {
+  height: 600px;
+}
