@@ -5,17 +5,31 @@ class LocationsController < ApplicationController
 
     @location = Location.new(location_params)
     # p location_params
-    # p @location.activity_type
-    p @location.trail_distance
     if @location.save
-    @swlat = @location.latitude - 0.1
-    @swlng = @location.longitude - 0.1
-    @nelat = @location.latitude + 0.1
-    @nelng = @location.longitude + 0.1
-    # puts "swlat is #{@swlat}; swlng is #{@swlng}; nelat is #{@nelat}; nelng is #{@nelng}"
-    @stravaLocation = StravaAdapter.new
-    @location.segments = @stravaLocation.find_routes(swlat: @swlat, swlng: @swlng, nelat: @nelat, nelng: @nelng, activity_type: @location.activity_type)
-      render json: @location.to_json( :include => [:segments])
+      p @location.trails
+      @swlat = @location.latitude - 0.1
+      @swlng = @location.longitude - 0.1
+      @nelat = @location.latitude + 0.1
+      @nelng = @location.longitude + 0.1
+      # puts "swlat is #{@swlat}; swlng is #{@swlng}; nelat is #{@nelat}; nelng is #{@nelng}"
+      @stravaLocation = StravaAdapter.new
+      @location.segments = @stravaLocation.find_routes(
+          swlat: @swlat,
+          swlng: @swlng,
+          nelat: @nelat,
+          nelng: @nelng,
+          activity_type: @location.activity_type
+        )
+      @overpassLocation = OverpassAdapter.new
+      @geojson = @overpassLocation.run_query(
+          swlat: @swlat,
+          swlng: @swlng,
+          nelat: @nelat,
+          nelng: @nelng,
+        )
+      @location.trails = @overpassLocation.find_trails(@geojson)
+      p @location.trails
+      render json: @location.to_json( :include => [:segments, :trails])
     else
       redirect_to root_path
     end
