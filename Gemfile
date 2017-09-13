@@ -5,6 +5,11 @@ git_source(:github) do |repo_name|
   "https://github.com/#{repo_name}.git"
 end
 
+# for code usage
+# gem 'coverband'
+# for test coverage
+gem 'simplecov', :require => false, :group => :test
+gem 'simplecov-rcov'
 # for env management
 gem 'dotenv-rails'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
