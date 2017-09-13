@@ -71,6 +71,10 @@ class App extends React.Component{
             $(".trails_list").append("<li>" + name + "</br>Bycicle:  " + bicycle + "</br>Foot:  " + foot + "</li>");
           }
         });
+      // test map modify for trail
+      var trailThing = 32901247
+
+
 
       $("#segments_container").empty();
       $("#segments_container").append("<h3 class='address'>Segments near </h3>")

@@ -16,4 +16,14 @@ class TrailsController < ApplicationController
     render json: @trails.to_json
   end
 
+  def show
+    @trail = Trail.find(params[:id])
+
+    @adapter = OverpassAdapter.new
+    geojson = @adapter.find_open_trail(@trail)
+    render json: geojson
+  end
+
+  # add link or button to load above route
+
 end
