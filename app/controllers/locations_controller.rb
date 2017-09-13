@@ -1,12 +1,11 @@
 class LocationsController < ApplicationController
   def create
-    p "Hit locations controller"
-    p params[:location]
+    # p "Hit locations controller"
+    # p params[:location]
 
     @location = Location.new(location_params)
     # p location_params
     if @location.save
-
       @swlat = @location.latitude - 0.1
       @swlng = @location.longitude - 0.1
       @nelat = @location.latitude + 0.1
@@ -32,8 +31,10 @@ class LocationsController < ApplicationController
       @location.trails = @overpassAdapter.find_trails(@geojson)
       p @location.trails
       p @location.geo
+      # status 200
       render json: @location.to_json( :include => [:segments, :trails])
     else
+      # status 302
       redirect_to root_path
     end
   end
@@ -49,6 +50,7 @@ class LocationsController < ApplicationController
     @stravaLocation = StravaAdapter.new
     @location.segments = @stravaLocation.find_routes(swlat: @swlat, swlng: @swlng, nelat: @nelat, nelng: @nelng)
     # p@segments"
+    status 200
     render json: @location.to_json( :include => [:segments])
   end
 

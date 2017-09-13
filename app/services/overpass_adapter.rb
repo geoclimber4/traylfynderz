@@ -44,7 +44,7 @@ class OverpassAdapter
                  "</union><union><item/><recurse type='down'/></union>"
 
         response = overpass.query(raw_query)
-        p response
+        # p response
     return response
   end
 
