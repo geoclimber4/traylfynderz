@@ -23,7 +23,7 @@ ActiveRecord::Schema.define(version: 20170913045853) do
     t.datetime "updated_at", null: false
     t.string "activity_type"
     t.float "trail_distance"
-    t.string "geo"
+    t.json "geo"
   end
 
   create_table "segments", force: :cascade do |t|

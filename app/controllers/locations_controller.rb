@@ -20,15 +20,15 @@ class LocationsController < ApplicationController
           nelng: @nelng,
           activity_type: @location.activity_type
         )
-      @overpassLocation = OverpassAdapter.new
-      @geojson = @overpassLocation.run_query(
+      @overpassAdapter = OverpassAdapter.new
+      @geojson = @overpassAdapter.run_query(
           swlat: @swlat,
           swlng: @swlng,
           nelat: @nelat,
           nelng: @nelng,
         )
       @location.geo = @geojson
-      @location.trails = @overpassLocation.find_trails(@geojson)
+      @location.trails = @overpassAdapter.find_trails(@geojson)
       p @location.trails
       p @location.geo
       render json: @location.to_json( :include => [:segments, :trails])

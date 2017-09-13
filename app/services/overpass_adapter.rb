@@ -40,7 +40,7 @@ class OverpassAdapter
 
         overpass = OverpassAPI::XML.new(options)
 
-        query = "<union><query type='way'><has-kv k='highway' modv='' v='path'/></query>" <<
+        raw_query = "<union><query type='way'><has-kv k='highway' modv='' v='path'/></query>" <<
                  "</union><union><item/><recurse type='down'/></union>"
 
         response = overpass.query(query)
@@ -55,7 +55,7 @@ class OverpassAdapter
       # query = "<union><query type='way'><has-kv k='id' modv='' v=#{openStreet_id}/></query>" <<
       #        "</union><union><item/><recurse type='down'/></union>"
 
-      # return should be a geojson 
+      # return should be a geojson
     return response
   end
 
