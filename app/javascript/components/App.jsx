@@ -79,13 +79,14 @@ class App extends React.Component{
       response.segments.forEach(function(segment){
         var name = segment.name
         var distance = segment.distance
+        var strava_id = segment.strava_id
         var segCoord = [segment.start_lat, segment.start_long]
         console.log(segCoord);
         // var myMarker = L.icon({
         //   iconUrl: '/assets/images/map_marker.png'
         // })
         L.marker(segCoord).addTo(leafletMap);
-        $(".segment_list").append("<li>" + name + "</br>Distance:  " + distance + " meters</li>");
+        $(".segment_list").append("<li>" + name + "</br>Distance:  " + distance + " meters</br>" + strava_id + "</br><a href='https://www.strava.com/segments/" + strava_id + "'>Link to this segment on Strava</a></li>");
       });
       $(".address_form input[type=text]").val("");
     }).fail(function(response){
