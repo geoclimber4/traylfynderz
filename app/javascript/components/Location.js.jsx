@@ -9,7 +9,7 @@ export default class Location extends React.Component {
 
   render() {
     if (this.props.location.length > 0) {
-    var location= this.props.location
+      var location= this.props.location
       return(
           <div key={location.id}>
             <h5>-{location.address}-</h5>
@@ -27,7 +27,7 @@ export default class Location extends React.Component {
       <div>
         {location}
       </div>
-      )
+    )
   }
 
 }
