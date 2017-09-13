@@ -297,8 +297,7 @@ class App extends React.Component{
       const loc = [response.latitude, response.longitude]
       leafletMap.setView(loc, 14);
       $("#trails_container").empty();
-      $("#trails_container").append("<h3 class='location'>Trails near </h3>")
-      $(".location").append(response.address);
+      $("#trails_container").append("<h3 class='location'>Trails near " + response.address + "</h3>")
       $(".location").after("<ul class='trails_list'></ul>");
         response.trails.forEach(function(trail){
           if(trail.name) {
@@ -315,7 +314,7 @@ class App extends React.Component{
             else {
               var foot = "not noted"
             }
-            $(".trails_list").append("<li>" + name + "</br>Bycicle:  " + bicycle + "</br>Foot:  " + foot + "</li>");
+            $(".trails_list").append("<li>" + name + "</br>Bicycle:  " + bicycle + "</br>Foot:  " + foot + "</br><a href='http://www.openstreetmap.org/way/" + trail.feature_id + "'>Link to this trail on OpenStreetMap</a></li>");
           }
         });
       // test map modify for trail
@@ -328,13 +327,14 @@ class App extends React.Component{
       response.segments.forEach(function(segment){
         var name = segment.name
         var distance = segment.distance
+        var strava_id = segment.strava_id
         var segCoord = [segment.start_lat, segment.start_long]
         console.log(segCoord);
         // var myMarker = L.icon({
         //   iconUrl: '/assets/images/map_marker.png'
         // })
-        L.marker(segCoord).addTo(leafletMap);
-        $(".segment_list").append("<li>" + name + "</br>Distance:  " + distance + " meters</li>");
+        L.marker(segCoord).addTo(leafletMap).bindPopup("<p>" + name + "</br>Distance:  " + distance + " meters</br>" + strava_id + "</br><a href='https://www.strava.com/segments/" + strava_id + "'>Link to this segment on Strava</a></p>").openPopup;;
+        $(".segment_list").append("<li>" + name + "</br>Distance:  " + distance + " meters</br>" + strava_id + "</br><a href='https://www.strava.com/segments/" + strava_id + "'>Link to this segment on Strava</a></li>");
       });
       $(".address_form input[type=text]").val("");
         var geothingy = response.geo
