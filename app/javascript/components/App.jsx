@@ -52,8 +52,10 @@ class App extends React.Component{
       $("#trails_container").empty();
       $("#trails_container").append("<h3 class='location'>Trails near </h3>")
       $(".location").append(response.address);
+      console.log(response);
       $(".location").after("<ul class='trails_list'></ul>");
         response.trails.forEach(function(trail){
+          L.featureGroup(trail.geo).addTo(leafletMap);
           if(trail.name) {
             var name = trail.name
             if(trail.bicycle) {
