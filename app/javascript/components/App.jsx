@@ -53,25 +53,24 @@ class App extends React.Component{
       $("#trails_container").append("<h3 class='location'>Trails near </h3>")
       $(".location").append(response.address);
       $(".location").after("<ul class='trails_list'></ul>");
-      // if (result.activity_type == "riding") {
         response.trails.forEach(function(trail){
-          // if (trail.bicycle == "yes"){
-            var featureId = trail.feature_id
+          if(trail.name) {
             var name = trail.name
-            $(".trails_list").append("<li>" + featureId + "</li>");
-          // }
-        // })
-      // }
-      // if (result.activity_type == "running") {
-      //   response.trails.forEach(function(trail){
-      //     if (trail.foot == "yes"){
-      //       var featureId = trail.feature_id
-      //       var name = trail.name
-      //       $(".trails_list").append("<li>" + featureId + "</li>");
-      //     }
-      //   })
-      // }
-      });
+            if(trail.bicycle) {
+              var bicycle = "yes"
+            }
+            else {
+              var bicycle = "not noted"
+            }
+            if(trail.foot) {
+              var foot = "yes"
+            }
+            else {
+              var foot = "not noted"
+            }
+            $(".trails_list").append("<li>" + name + "</br>Bycicle:  " + bicycle + "</br>Foot:  " + foot + "</li>");
+          }
+        });
 
       $("#segments_container").empty();
       $("#segments_container").append("<h3 class='address'>Segments near </h3>")
