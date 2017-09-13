@@ -36,20 +36,37 @@ class App extends React.Component{
       method: 'POST',
       data: dataThing
     }).done(function(response){
-      console.log("This is the verything's okay alarm")
-      console.log(response)
-      console.log(response.latitude);
-      console.log(response.longitude);
       const loc = [response.latitude, response.longitude]
       mymap.setView(loc, 14);
-      // $("#app").append(response.segments[0].name);
+      $("#trails_container").empty();
+      $("#trails_container").append("<h3 class='location'>Trails near </h3>")
+      $(".location").append(response.address);
+      $(".location").after("<ul class='trails_list'></ul>");
+      // if (result.activity_type == "riding") {
+        response.trails.forEach(function(trail){
+          // if (trail.bicycle == "yes"){
+            var featureId = trail.feature_id
+            var name = trail.name
+            $(".trails_list").append("<li>" + featureId + "</li>");
+          // }
+        // })
+      // }
+      // if (result.activity_type == "running") {
+      //   response.trails.forEach(function(trail){
+      //     if (trail.foot == "yes"){
+      //       var featureId = trail.feature_id
+      //       var name = trail.name
+      //       $(".trails_list").append("<li>" + featureId + "</li>");
+      //     }
+      //   })
+      // }
+      });
+
       $("#segments_container").empty();
-      $("#segments_container").append("<h3 class='address'></h3>")
+      $("#segments_container").append("<h3 class='address'>Segments near </h3>")
       $(".address").append(response.address);
       $(".address").after("<ul class='segment_list'></ul>");
       response.segments.forEach(function(segment){
-        console.log(segment.name);
-        // $(".segment_list").append("<li></li>")
         var name = segment.name
         var distance = segment.distance
         $(".segment_list").append("<li>" + name + "</br>Distance:  " + distance + " meters</li>");
@@ -62,9 +79,9 @@ class App extends React.Component{
   }
 
   handleChange(event) {
-    console.log("handleChange is below")
-    console.log(event.target)
-    console.log(event.target.address)
+    // console.log("handleChange is below")
+    // console.log(event.target)
+    // console.log(event.target.address)
     if(event.target.name == 'address'){
       this.setState({address: event.target.value});
     }

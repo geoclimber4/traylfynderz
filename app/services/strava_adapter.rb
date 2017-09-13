@@ -14,7 +14,7 @@ class StravaAdapter
   # coordinates that work: 41.699412,-87.920408,41.725388,-87.885764
   def find_routes(args = {})
     # puts "args is #{args}"
-    segment_data = self.client.segment_explorer( bounds: [args[:swlat]||41.699412,args[:swlng]||-87.920408,args[:nelat]||41.725388,args[:nelng]||-87.885764], activity_type: args[:activity_type]||'running')
+    segment_data = self.client.segment_explorer( bounds: [args[:swlat]||41.699412,args[:swlng]||-87.920408,args[:nelat]||41.725388,args[:nelng]||-87.885764], activity_type: args[:activity_type]||'riding')
     segments = []
     segment_data["segments"].each do |seg|
       segments << Segment.create(
