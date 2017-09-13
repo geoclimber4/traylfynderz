@@ -27,8 +27,10 @@ class LocationsController < ApplicationController
           nelat: @nelat,
           nelng: @nelng,
         )
+      @location.geo = @geojson
       @location.trails = @overpassLocation.find_trails(@geojson)
       p @location.trails
+      p @location.geo
       render json: @location.to_json( :include => [:segments, :trails])
     else
       redirect_to root_path
