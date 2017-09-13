@@ -337,9 +337,15 @@ class App extends React.Component{
         $(".segment_list").append("<li>" + name + "</br>Distance:  " + distance + " meters</li>");
       });
       $(".address_form input[type=text]").val("");
-        // var geothingy = response.geo
-        // console.log(geothingy["elements"])
-        L.geoJSON(testGeo).addTo(leafletMap);
+        var geothingy = response.geo
+        console.log(geothingy["elements"])
+        // geothingy["elements"].forEach(function())
+        var osmtogeojson = require('osmtogeojson');
+        var winner = osmtogeojson(geothingy);
+        L.geoJSON(winner, {
+          "color": "red",
+          "weight": 5
+        }).addTo(leafletMap);
 
     }).fail(function(response){
       console.log("no funsies")

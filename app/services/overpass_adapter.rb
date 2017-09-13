@@ -43,7 +43,7 @@ class OverpassAdapter
         raw_query = "<union><query type='way'><has-kv k='highway' modv='' v='path'/></query>" <<
                  "</union><union><item/><recurse type='down'/></union>"
 
-        response = overpass.query(query)
+        response = overpass.query(raw_query)
         p response
     return response
   end
