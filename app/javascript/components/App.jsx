@@ -333,7 +333,9 @@ class App extends React.Component{
         // var myMarker = L.icon({
         //   iconUrl: '/assets/images/map_marker.png'
         // })
-        L.marker(segCoord).addTo(leafletMap);
+        L.marker(segCoord).addTo(leafletMap).bindPopup("<p>" + name + "</br>Distance:  " + distance + " meters</br>" + strava_id + "</br><a href='https://www.strava.com/segments/" + strava_id + "'>Link to this segment on Strava</a></p>").openPopup;
+        // var marker = L.marker(segCoord);
+        // marker.
         $(".segment_list").append("<li>" + name + "</br>Distance:  " + distance + " meters</br>" + strava_id + "</br><a href='https://www.strava.com/segments/" + strava_id + "'>Link to this segment on Strava</a></li>");
       });
       $(".address_form input[type=text]").val("");

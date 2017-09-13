@@ -40,7 +40,7 @@ class OverpassAdapter
 
         overpass = OverpassAPI::XML.new(options)
 
-        raw_query = "<union><query type='way'><has-kv k='highway' modv='' v='path'/></query>" <<
+        query = "<union><query type='way'><has-kv k='highway' modv='' v='path'/></query>" <<
                  "</union><union><item/><recurse type='down'/></union>"
 
         response = overpass.query(query)
