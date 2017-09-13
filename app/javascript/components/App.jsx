@@ -1,6 +1,12 @@
 import React from 'react';
 import Form from './Form.js.jsx';
 import Location from './Location.js.jsx';
+import { Map, TileLayer } from 'react-leaflet';
+
+const stamenTonerTiles = 'http://{s}.tiles.wmflabs.org/hikebike/{z}/{x}/{y}.png';
+const stamenTonerAttr = 'Map data &copy; <a href="http://openstreetmap.org">OpenStreetMap</a> contributors, <a href="http://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, Imagery © <a href="http://mapbox.com">Mapbox</a>';
+const mapCenter = [39.9528, -75.1638];
+const zoomLevel = 12;
 
 class App extends React.Component{
   constructor(props) {
@@ -83,10 +89,25 @@ class App extends React.Component{
 
   render() {
     return (
+    <div>
+      <div>
+          <Map
+              center={mapCenter}
+              zoom={zoomLevel}
+          >
+              <TileLayer
+                  attribution={stamenTonerAttr}
+                  url={stamenTonerTiles}
+                  id='mapbox.run-bike-hike'
+                  accessToken='your.mapbox.access.token'
+              />
+          </Map>
+      </div>
       <div>
       <Form handleSubmit={this.submitHandler} handleChange={this.handleChange} />
       <Location location={this.state.location} />
       </div>
+    </div>
       )
   }
 }
