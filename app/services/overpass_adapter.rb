@@ -21,8 +21,6 @@ class OverpassAdapter
     return trails
   end
 
-
-
   def run_query(args)
       south = args[:swlat] || 41.6959
       north = args[:nelat] || 41.70511
@@ -42,13 +40,27 @@ class OverpassAdapter
 
         overpass = OverpassAPI::XML.new(options)
 
-        query = "<union><query type='way'><has-kv k='highway' modv='' v='path'/></query>" <<
+        raw_query = "<union><query type='way'><has-kv k='highway' modv='' v='path'/></query>" <<
                  "</union><union><item/><recurse type='down'/></union>"
 
-        response = overpass.query(query)
+        response = overpass.query(raw_query)
         p response
     return response
   end
+
+  def find_open_trail(trail)
+    openStreet_id = trail.feature_id
+    # find location box for query
+    # change query below to search for feature_id, think below works but not sure
+      # query = "<union><query type='way'><has-kv k='id' modv='' v=#{openStreet_id}/></query>" <<
+      #        "</union><union><item/><recurse type='down'/></union>"
+
+      # return should be a geojson
+    return response
+  end
+
+
+
 end
 
 # <osm-script output="json" output-config="" timeout="25">
