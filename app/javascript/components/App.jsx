@@ -338,12 +338,12 @@ class App extends React.Component{
       });
       $(".address_form input[type=text]").val("");
         var geothingy = response.geo
-        console.log(geothingy["elements"])
         // geothingy["elements"].forEach(function())
         var osmtogeojson = require('osmtogeojson');
         var winner = osmtogeojson(geothingy);
+        console.log(winner);
         L.geoJSON(winner, {
-          "color": "red",
+          "color": "purple",
           "weight": 5
         }).addTo(leafletMap);
 
