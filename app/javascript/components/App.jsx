@@ -3,9 +3,9 @@ import Form from './Form.js.jsx';
 import Location from './Location.js.jsx';
 import { Map, TileLayer } from 'react-leaflet';
 
-const stamenTonerTiles = 'http://{s}.tiles.wmflabs.org/hikebike/{z}/{x}/{y}.png';
-const stamenTonerAttr = 'Map data &copy; <a href="http://openstreetmap.org">OpenStreetMap</a> contributors, <a href="http://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, Imagery © <a href="http://mapbox.com">Mapbox</a>';
-const mapCenter = [39.9528, -75.1638];
+const Tiles = 'http://{s}.tiles.wmflabs.org/hikebike/{z}/{x}/{y}.png';
+const TileAttr = 'Map data &copy; <a href="http://openstreetmap.org">OpenStreetMap</a> contributors, <a href="http://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, Imagery © <a href="http://mapbox.com">Mapbox</a>';
+const loc = [41.74086519999999, -87.86033429999999];
 const zoomLevel = 12;
 
 class App extends React.Component{
@@ -18,13 +18,18 @@ class App extends React.Component{
     this.submitHandler = this.submitHandler.bind(this)
     this.handleChange = this.handleChange.bind(this);
   }
+
+  componentDidMount() {
+      const leafletMap = this.leafletMap;
+  }
+
   submitHandler(event) {
     // console.log(event)
     event.preventDefault();
     console.log("submit!")
     // console.log(this)
     // console.log(this.state)
-
+    const leafletMap = this.leafletMap.leafletElement;
     // console.log(this.state.value)
     var dataThing = {location: {address: this.state.address,
                                 activity_type: this.state.activity_type,
@@ -42,14 +47,9 @@ class App extends React.Component{
       method: 'POST',
       data: dataThing
     }).done(function(response){
-      // console.log("This is the verything's okay alarm")
-      // console.log(response)
-      // console.log(response.latitude);
-      // console.log(response.longitude);
       const loc = [response.latitude, response.longitude]
-      mymap.setView(loc, 14);
-      L.marker(loc).addTo(mymap);
-      // $("#app").append(response.segments[0].name);
+      leafletMap.setView(loc, 14);
+
       $("#segments_container").empty();
       $("#segments_container").append("<h3 class='address'></h3>")
       $(".address").append(response.address);
@@ -60,8 +60,11 @@ class App extends React.Component{
         var name = segment.name
         var distance = segment.distance
         var segCoord = [segment.start_lat, segment.start_long]
-        console.log(segCoord)
-        L.marker(segCoord).addTo(mymap);
+        console.log(segCoord);
+        // var myMarker = L.icon({
+        //   iconUrl: '/assets/images/map_marker.png'
+        // })
+        L.marker(segCoord).addTo(leafletMap);
         $(".segment_list").append("<li>" + name + "</br>Distance:  " + distance + " meters</li>");
       });
       $(".address_form input[type=text]").val("");
@@ -92,12 +95,13 @@ class App extends React.Component{
     <div>
       <div>
           <Map
-              center={mapCenter}
+              ref={m => { this.leafletMap = m; }}
+              center={loc}
               zoom={zoomLevel}
           >
               <TileLayer
-                  attribution={stamenTonerAttr}
-                  url={stamenTonerTiles}
+                  attribution={TileAttr}
+                  url={Tiles}
                   id='mapbox.run-bike-hike'
                   accessToken='your.mapbox.access.token'
               />
