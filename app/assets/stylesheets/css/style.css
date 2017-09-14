@@ -21,6 +21,10 @@ body {
   margin-top: 0;
 }
 
+footer {
+  margin-top: 10px;
+}
+
 #mapid {
   height: 400px;
 }
