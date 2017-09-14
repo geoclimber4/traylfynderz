@@ -32,7 +32,7 @@ export default class Location extends React.Component {
     else {
       return (
         <div>
-          loading...
+
         </div>
         )
     }

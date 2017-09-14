@@ -40,11 +40,6 @@ export default class Form extends React.Component {
             </select>
           </label>
 
-          <label>
-            Choose distance of trail:
-            <input type="number" name="trail_distance" onChange={this.props.handleChange} />
-          </label>
-
           <input type="submit" value="Submit" />
         </form>
       </div>
