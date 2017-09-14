@@ -51,7 +51,7 @@ body {
 .leaflet-container {
   height: 600px;
   margin: 30px auto 0;
-  margin-top: 55px;
+  margin-top: 59px;
   margin-bottom: 20px;
   position: relative;
 }
@@ -62,6 +62,7 @@ body {
 
 input {
   color: #666;
+  padding: 3px;
 }
 
 select {

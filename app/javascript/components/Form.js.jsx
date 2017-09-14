@@ -28,12 +28,12 @@ export default class Form extends React.Component {
       <div>
         <form className="address_form" action="/locations" method="POST" onSubmit={this.props.handleSubmit} >
           <label>
-            Location:
+            Location: <br />
             <input type="text" name="address" onChange={this.props.handleChange} />
           </label>
           <br />
           <label>
-            Choose type of activity:
+            Choose type of activity: <br />
             <select name="activity_type" onChange={this.props.handleChange}>
               <option value="riding">Riding</option>
               <option value="running">Running</option>
@@ -41,7 +41,7 @@ export default class Form extends React.Component {
           </label>
           <br />
           <label>
-            Choose distance of trail:
+            Choose distance of trail: <br />
             <input type="number" name="trail_distance" onChange={this.props.handleChange} />
           </label>
 
