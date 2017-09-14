@@ -16,13 +16,13 @@ export default class Location extends React.Component {
           </div>
         )
     }
-    else {
-      return (
-        <div>
-          loading...
-        </div>
-        )
-    }
+    // else {
+    //   return (
+    //     <div>
+    //       loading...
+    //     </div>
+    //     )
+    // }
     return (
       <div>
         {location}
