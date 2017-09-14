@@ -5,6 +5,8 @@ git_source(:github) do |repo_name|
   "https://github.com/#{repo_name}.git"
 end
 
+#add rspec matchers that have been extracted to a gem
+gem 'rails-controller-testing'
 # for code usage
 # gem 'coverband'
 # for test coverage

@@ -29,8 +29,8 @@ class LocationsController < ApplicationController
         )
       @location.geo = @geojson
       @location.trails = @overpassAdapter.find_trails(@geojson)
-      p @location.trails
-      p @location.geo
+      # p @location.trails
+      # p @location.geo
       # status 200
       render json: @location.to_json( :include => [:segments, :trails])
     else
@@ -39,20 +39,20 @@ class LocationsController < ApplicationController
     end
   end
 
-  def show
-    p "Locations Show controller"
-    @location = Location.find(params[:id])
-    @swlat = @location.latitude - 0.1
-    @swlng = @location.longitude - 0.1
-    @nelat = @location.latitude + 0.1
-    @nelng = @location.longitude + 0.1
-    # puts "swlat is #{@swlat}; swlng is #{@swlng}; nelat is #{@nelat}; nelng is #{@nelng}"
-    @stravaLocation = StravaAdapter.new
-    @location.segments = @stravaLocation.find_routes(swlat: @swlat, swlng: @swlng, nelat: @nelat, nelng: @nelng)
-    # p@segments"
-    status 200
-    render json: @location.to_json( :include => [:segments])
-  end
+  # def show
+  #   p "Locations Show controller"
+  #   @location = Location.find(params[:id])
+  #   @swlat = @location.latitude - 0.1
+  #   @swlng = @location.longitude - 0.1
+  #   @nelat = @location.latitude + 0.1
+  #   @nelng = @location.longitude + 0.1
+  #   # puts "swlat is #{@swlat}; swlng is #{@swlng}; nelat is #{@nelat}; nelng is #{@nelng}"
+  #   @stravaLocation = StravaAdapter.new
+  #   @location.segments = @stravaLocation.find_routes(swlat: @swlat, swlng: @swlng, nelat: @nelat, nelng: @nelng)
+  #   # p@segments"
+  #   status 200
+  #   render json: @location.to_json( :include => [:segments])
+  # end
 
   private
 
@@ -60,7 +60,7 @@ class LocationsController < ApplicationController
     params.require(:location).permit(:address, :id, :activity_type, :trail_distance)
   end
 
-  def segment_params
-    params.require(:segment).permit(:id, :name, :distance)
-  end
+  # def segment_params
+  #   params.require(:segment).permit(:id, :name, :distance)
+  # end
 end
