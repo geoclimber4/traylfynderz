@@ -27,7 +27,7 @@ body {
 
 .page-header {
   padding: 10px;
-  height: 55px;
+  height: 70px;
   background-color: #e67300;
   margin: 0;
   border-style: inset;
@@ -51,7 +51,7 @@ body {
 .leaflet-container {
   height: 600px;
   margin: 30px auto 0;
-  margin-top: 59px;
+  margin-top: 75px;
   margin-bottom: 20px;
   position: relative;
 }
