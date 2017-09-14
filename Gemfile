@@ -5,6 +5,13 @@ git_source(:github) do |repo_name|
   "https://github.com/#{repo_name}.git"
 end
 
+#add rspec matchers that have been extracted to a gem
+gem 'rails-controller-testing'
+# for code usage
+# gem 'coverband'
+# for test coverage
+gem 'simplecov', :require => false, :group => :test
+gem 'simplecov-rcov'
 # for env management
 gem 'dotenv-rails'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
@@ -49,6 +56,8 @@ gem 'strava-api-v3'
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
+  gem 'rspec-rails'
+  gem 'rack-test', require: 'rack/test'
   # Adds support for Capybara system testing and selenium driver
   gem 'capybara', '~> 2.13'
   gem 'selenium-webdriver'
