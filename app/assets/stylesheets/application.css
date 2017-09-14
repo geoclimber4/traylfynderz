@@ -14,14 +14,7 @@
  *= require_self
  */
 
-body {
+/*body {
   margin: 2%;
-}
+}*/
 
-#mapid {
-  height: 400px;
-}
-
-.leaflet-container {
-  height: 600px;
-}
