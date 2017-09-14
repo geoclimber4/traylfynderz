@@ -87,7 +87,7 @@ class App extends React.Component{
         //   iconUrl: '/assets/images/map_marker.png'
         // })
         L.marker(segCoord).addTo(leafletMap).bindPopup("<p>" + name + "</br>Distance:  " + distance + " meters</br>" + strava_id + "</br><a href='https://www.strava.com/segments/" + strava_id + "'>Link to this segment on Strava</a></p>").openPopup;;
-        $(".segment_list").append("<li>" + name + "</br>Distance:  " + distance + " meters</br>" + strava_id + "</br><a href='https://www.strava.com/segments/" + strava_id + "'>Link to this segment on Strava</a></li>");
+        $(".segment_list").append("<li>" + name + "</br>Distance:  " + distance + " meters</br>" + strava_id + "</br><a class='strava-link' href='https://www.strava.com/segments/" + strava_id + "'>Link to this segment on Strava</a></li>");
       });
       $(".address_form input[type=text]").val("");
         var geothingy = response.geo
