@@ -51,6 +51,11 @@ input {
   color: #666;
 }
 
+select {
+  color: #666;
+  background-color: #fff;
+}
+
 /* --- logo --- */
 .site-logo {
 	margin-top:40px;
