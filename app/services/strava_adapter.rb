@@ -36,22 +36,22 @@ class StravaAdapter
     return segments
   end
 
-  def find_segment(segment_id)
-    self.retrieve_a_segment(segment_id)
-    seg = Segment.create(
-            strava_id: seg["id"],
-            name: seg["name"],
-            distance: seg["distance"],
-            average_grade: seg["avg_grade"],
-            start_lat: seg["start_latlng"][0],
-            start_long: seg["start_latlng"][1],
-            end_lat: seg["end_latlng"][0],
-            end_long: seg["end_latlng"][1],
-            avg_grade: seg["avg_grade"],
-            climb_category_desc: seg["climb_category_desc"],
-            climb_category: seg["climb_category"])
-    return seg
-  end
+  # def find_segment(segment_id)
+  #   self.retrieve_a_segment(segment_id)
+  #   seg = Segment.create(
+  #           strava_id: seg["id"],
+  #           name: seg["name"],
+  #           distance: seg["distance"],
+  #           average_grade: seg["avg_grade"],
+  #           start_lat: seg["start_latlng"][0],
+  #           start_long: seg["start_latlng"][1],
+  #           end_lat: seg["end_latlng"][0],
+  #           end_long: seg["end_latlng"][1],
+  #           avg_grade: seg["avg_grade"],
+  #           climb_category_desc: seg["climb_category_desc"],
+  #           climb_category: seg["climb_category"])
+  #   return seg
+  # end
 end
 
   # @client.retrieve_segment_streams(:segment_id)
