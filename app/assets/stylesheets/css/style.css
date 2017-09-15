@@ -56,7 +56,7 @@ body {
   position: relative;
 }
 
-.strava-link {
+.strava-link, .osm-trail-link {
   color: #e6ffff;
 }
 
@@ -362,3 +362,14 @@ textarea#message{
 	display:block;
 }
 
+.segment_list, .trails_list {
+  list-style-type: none;
+  padding: 0;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.segment_list li, .trails_list li {
+  width: 250px;
+  margin: 20px;
+}
