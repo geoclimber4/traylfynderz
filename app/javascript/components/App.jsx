@@ -4,7 +4,7 @@ import Location from './Location.js.jsx';
 import { Map, TileLayer } from 'react-leaflet';
 
 const Tiles = 'http://{s}.tiles.wmflabs.org/hikebike/{z}/{x}/{y}.png';
-const TileAttr = 'Map data &copy; <a class="osm-trail-link" href="http://openstreetmap.org">OpenStreetMap</a> contributors, <a href="http://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, Imagery © <a href="http://mapbox.com">Mapbox</a>';
+const TileAttr = 'Map data &copy; <a href="http://openstreetmap.org">OpenStreetMap</a> contributors, <a href="http://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, Imagery © <a href="http://mapbox.com">Mapbox</a>';
 const loc = [41.74086519999999, -87.86033429999999];
 const zoomLevel = 12;
 
@@ -67,7 +67,7 @@ class App extends React.Component{
             else {
               var foot = "not noted"
             }
-            $(".trails_list").append("<li>" + name + "</br>Bicycle:  " + bicycle + "</br>Foot:  " + foot + "</br><a href='http://www.openstreetmap.org/way/" + trail.feature_id + "'>Link to this trail on OpenStreetMap</a></li>");
+            $(".trails_list").append("<li>" + name + "</br>Bicycle:  " + bicycle + "</br>Foot:  " + foot + "</br><a class='osm-trail-link' href='http://www.openstreetmap.org/way/" + trail.feature_id + "'>Link to this trail on OpenStreetMap</a></li>");
           }
         });
       // test map modify for trail
